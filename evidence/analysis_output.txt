@@ -1,0 +1,39 @@
+ACTIVITY 09 - SQLITE DIAGNOSTIC RESULTS
+
+Database version: 2
+Database file: MyDatabase.db
+Android package: com.example.inclass08
+
+Tables:
+- my_table
+- folders
+- cards
+
+Foreign keys enabled: 1
+
+Card foreign key:
+- Column: folder_id
+- References: folders(id)
+- On delete: CASCADE
+
+Card index:
+- idx_cards_folder_id
+
+Original Activity 08 guest records:
+- ID 2: River, age 35
+- ID 3: Acorn, age 0
+- ID 4: Oak, age 130
+
+Original guest count: 3
+
+Migration observation:
+The database initially reported version 2 but lacked
+the folders and cards tables. A schema repair created
+the missing tables and index without deleting my_table.
+
+Verified after repair:
+- Version remained 2
+- Foreign keys enabled
+- ON DELETE CASCADE configured
+- Card index present
+- Original guest count remained 3
